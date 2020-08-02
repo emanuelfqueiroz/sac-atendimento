@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SAC.Models.Protocolo>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@await Html.PartialAsync("_pesquisaProtocolo", (SAC.Controllers.Requests.PesquisaProtocolo) ViewBag.Filtro)
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProtocoloId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DigitroId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente.Documento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Setor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assunto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtCriacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProtocoloId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DigitroId)
+            </td>
+            <td>
+
+                <a asp-controller="Cliente" asp-action="Details" asp-route-id="@item.Cliente.Documento">
+                    @item.Cliente.Nome
+                </a>
+            </td>
+            <td>
+
+                <a asp-controller="Cliente" asp-action="Edit" asp-route-id="@item.Cliente.Documento">
+                    @item.Cliente.Documento
+                </a>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Setor.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Motivo.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assunto.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtCriacao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProtocoloId">Edit</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

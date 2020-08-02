@@ -1,0 +1,69 @@
+﻿@model SAC.Models.Protocolo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Protocolo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProtocoloId" />
+            <div class="form-group">
+                <label asp-for="DigitroId" class="control-label"></label>
+                <input asp-for="DigitroId" class="form-control" />
+                <span asp-validation-for="DigitroId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClienteId" class="control-label"></label>
+                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SetorId" class="control-label"></label>
+                <select asp-for="SetorId" class="form-control" asp-items="ViewBag.SetorId"></select>
+                <span asp-validation-for="SetorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observacao" class="control-label"></label>
+                <input asp-for="Observacao" class="form-control" />
+                <span asp-validation-for="Observacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MotivoId" class="control-label"></label>
+                <select asp-for="MotivoId" class="form-control" asp-items="ViewBag.MotivoId"></select>
+                <span asp-validation-for="MotivoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssuntoId" class="control-label"></label>
+                <select asp-for="AssuntoId" class="form-control" asp-items="ViewBag.AssuntoId"></select>
+                <span asp-validation-for="AssuntoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtCriacao" class="control-label"></label>
+                <input asp-for="DtCriacao" class="form-control" />
+                <span asp-validation-for="DtCriacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtAlterado" class="control-label"></label>
+                <input asp-for="DtAlterado" class="form-control" />
+                <span asp-validation-for="DtAlterado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

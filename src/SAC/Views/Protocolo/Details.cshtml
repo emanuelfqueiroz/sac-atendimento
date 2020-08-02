@@ -1,0 +1,66 @@
+﻿@model SAC.Models.Protocolo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Protocolo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DigitroId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DigitroId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cliente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cliente.Documento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Setor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Setor.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Motivo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Motivo.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Assunto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Assunto.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DtCriacao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DtCriacao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DtAlterado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DtAlterado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProtocoloId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

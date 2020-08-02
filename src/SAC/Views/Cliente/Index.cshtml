@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SAC.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cliente</h1>
+<div>
+    @{
+        if (@ViewBag.Busca != null)
+        {
+            @ViewBag.Busca
+            <a asp-action="Index">x</a>
+            
+        }
+    }
+    </div>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Documento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fone)
+            </td>
+            <td>
+                <a asp-controller="Protocolo" asp-action="Create" asp-route-id="@item.Documento">
+                    +
+                </a>
+                <a asp-action="Edit" asp-route-id="@item.Documento">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Documento">Details</a> |
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
